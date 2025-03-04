@@ -4,9 +4,9 @@
 #include "string"
 class Human : public Player {
     private:
-     string name = "Human";
+     string name;
     public:
-     Human(string name);
+     Human(string name = "Human");
      string getName() override;
      char makeMove() override;
 };

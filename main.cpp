@@ -2,6 +2,7 @@
 #include "Computer.h"
 #include "Referee.h"
 #include <iostream>
+#include <string>
 
 int main() {
     Human human("Minh");
