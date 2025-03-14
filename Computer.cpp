@@ -4,7 +4,7 @@
 Computer::Computer() {}
 
 Move* Computer::makeMove() {
-    return new Rock();
+    return new Robot();
 }
 
 string Computer::getName() {
