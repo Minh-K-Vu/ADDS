@@ -1,10 +1,11 @@
 #include "Monkey.h"
 #include "Move.h"
+#include "string"
 
-Monkey::Monkey(){}
+Monkey::Monkey(std::string name) : name(name){}
 
 std::string Monkey::getName() {
-    return "Monkey";
+    return name;
 }
 
 bool Monkey::beats(Move* other) {

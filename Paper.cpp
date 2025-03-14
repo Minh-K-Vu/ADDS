@@ -1,7 +1,8 @@
 #include "Paper.h"
 #include "Rock.h"
-Paper::Paper(){}
-std::string Paper::getName() { return "Paper"; }
+#include "string"
+Paper::Paper(std::string name) : name(name){}
+std::string Paper::getName() { return name; }
 bool Paper::beats(Move* other) {
     if (other->getName() == "Rock"){
         return true;

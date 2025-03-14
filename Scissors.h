@@ -4,8 +4,10 @@
 #include "string"
 
 class Scissors : public Move {
+    private:
+     std::string name;
     public:
-     Scissors();
+     Scissors(std::string name = "Scissors");
      std::string getName() override;
      bool beats(Move* other) override; 
 };

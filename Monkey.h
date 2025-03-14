@@ -4,8 +4,10 @@
 #include "string"
 
 class Monkey : public Move {
+    private:
+     std::string name;
     public:
-     Monkey();
+     Monkey(std::string name = "Monkey");
      std::string getName();
      bool beats(Move* other);
 };

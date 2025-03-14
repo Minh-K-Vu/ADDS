@@ -3,9 +3,9 @@
 #include "Zombie.h"
 #include "string"
 
-Ninja::Ninja(){}
+Ninja::Ninja(std::string name) : name(name){}
 
-std::string Ninja::getName() { return "Ninja"; }
+std::string Ninja::getName() { return name; }
 
 bool Ninja::beats(Move* other) {
     if (other->getName() == "Pirate" || other->getName() == "Zombie"){
