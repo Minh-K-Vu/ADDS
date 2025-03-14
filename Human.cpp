@@ -13,7 +13,7 @@ Human::Human(string name) : name(name) {}
 
 Move* Human::makeMove() {
   std::string move;
-  cout << "Enter Move:";
+  cout << "Enter Move: ";
   cin >> move;
   if (move == "Rock") {
     return new Rock();
