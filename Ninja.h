@@ -4,6 +4,7 @@
 
 class Ninja : public Move {
     public:
+     Ninja();
      std::string getName() override;
      bool beats(Move* other) override;
 };

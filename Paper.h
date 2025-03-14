@@ -5,6 +5,7 @@
 
 class Paper : public Move {
     public:
+     Paper();
      std::string getName() override;
      bool beats(Move* other) override;
 };

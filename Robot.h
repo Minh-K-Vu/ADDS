@@ -5,6 +5,7 @@
 
 class Robot : public Move {
     public:
+     Robot();
      std::string getName() override;
      bool beats(Move* other) override;
 };

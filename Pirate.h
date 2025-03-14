@@ -5,6 +5,7 @@
 
 class Pirate : public Move {
     public:
+     Pirate();
      std::string getName() override;
      bool beats(Move* other) override;
 };

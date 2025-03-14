@@ -5,6 +5,7 @@
 
 class Monkey : public Move {
     public:
+     Monkey();
      std::string getName();
      bool beats(Move* other);
 };

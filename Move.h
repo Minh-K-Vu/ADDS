@@ -3,9 +3,10 @@
 #include <string>
 
 class Move {
-    public: 
-    virtual std::string getName() = 0;
-    virtual bool beats(Move* other) = 0;
+    public:
+     virtual ~Move() {};
+     virtual std::string getName() = 0;
+     virtual bool beats(Move* other) = 0;
 };
 
 #endif

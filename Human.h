@@ -4,9 +4,9 @@
 #include "string"
 class Human : public Player {
     private:
-     string name;
+     std::string name;
     public:
-     Human(string name = "Human");
+     Human(std::string name = "Human");
      string getName() override;
      Move* makeMove() override;
 };

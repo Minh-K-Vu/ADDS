@@ -5,6 +5,7 @@
 
 class Zombie : public Move {
     public:
+     Zombie();
      std::string getName() override;
      bool beats(Move* other) override;
 };

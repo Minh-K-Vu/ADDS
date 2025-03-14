@@ -2,6 +2,9 @@
 #include "Pirate.h"
 #include "Zombie.h"
 #include "string"
+
+Ninja::Ninja(){}
+
 std::string Ninja::getName() { return "Ninja"; }
 
 bool Ninja::beats(Move* other) {
