@@ -12,8 +12,7 @@ Player* Referee::refGame(Player* player1, Player* player2) {
   } else if (move2->beats(move1)) {
       std::cout << player2->getName() << " wins!\n";
       return player2;
-  } else {
-      std::cout << "It's a tie!\n";
-      return nullptr;
+  }else {
+    return nullptr;
   }
 }
