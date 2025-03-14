@@ -3,6 +3,8 @@
 #include "Player.h"
 
 class Computer : public Player {
+private:
+    
 public:
     Computer();
     Move* makeMove() override;

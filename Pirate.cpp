@@ -4,7 +4,7 @@
 Pirate::Pirate(){}
 std::string Pirate::getName() { return "Pirate"; }
 bool Pirate::beats(Move* other) {
-    if (other->getName() == "Robot" || other->getName() == "Moneky"){
+    if (other->getName() == "Robot" || other->getName() == "Monkey"){
         return true;
     } else {
       return false;
