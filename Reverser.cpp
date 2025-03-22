@@ -2,7 +2,9 @@
 #include <cmath>
 
 int Reverser::reverseDigit(int value) {
-    if (value < 10) {
+    if (value < 0){
+      return -1;
+    } else if (value < 10) {
       return value;
     } else {
       int lastDigit = value % 10;
@@ -18,7 +20,9 @@ int Reverser::reverseDigit(int value) {
 }
 
 std::string Reverser::reverseString(std::string characters) {
-    if (characters.length() <= 1) {
+    if (characters.length() < 0) {
+      return "ERROR";
+    } else if (characters.length() <= 1) {
       return characters;
     } else {
       char lastCharacter = characters[characters.length() - 1];
