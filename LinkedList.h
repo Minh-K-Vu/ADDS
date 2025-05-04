@@ -10,11 +10,12 @@ public:
     LinkedList();
     LinkedList(int* array, int length);
     ~LinkedList();
+
     void insertPosition(int pos, int newNum);
     bool deletePosition(int pos);
-    int get(int pos) const;
-    int search(int target) const;
-    void printList() const;
+    int get(int pos);
+    int search(int target);
+    void printList();
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "LinkedList.h"
+#include "Node.h"
 #include <iostream>
 #include <limits>
 
@@ -37,54 +38,48 @@ void LinkedList::insertPosition(int pos, int newNum) {
     Node* newNode = new Node(newNum);
     newNode->setLink(nullptr);
 
-    if (head == nullptr) {
+    if (head == nullptr || pos <= 1) {
+        newNode->setLink(head);
         head = newNode;
     } else {
-        if (pos <= 1) {
-            newNode->setLink(head);
-            head = newNode;
-        } else {
-            Node* prev = head;
-            int index = 1;
-            while (prev->getLink() != nullptr && index < pos - 1) {
-                prev = prev->getLink();
-                index = index + 1;
-            }
-            newNode->setLink(prev->getLink());
-            prev->setLink(newNode);
+        Node* prev = head;
+        int index = 1;
+        while (prev->getLink() != nullptr && index < pos - 1) {
+            prev = prev->getLink();
+            index = index + 1;
         }
+        newNode->setLink(prev->getLink());
+        prev->setLink(newNode);
     }
 }
 
 bool LinkedList::deletePosition(int pos) {
     if (head == nullptr) {
         return false;
+    }
+    if (pos <= 1) {
+        Node* toDelete = head;
+        head = head->getLink();
+        delete toDelete;
+        return true;
     } else {
-        if (pos <= 1) {
-            Node* toDelete = head;
-            head = head->getLink();
-            delete toDelete;
-            return true;
-        } else {
-            Node* prev = head;
-            int index = 1;
-            while (prev->getLink() != nullptr && index < pos - 1) {
-                prev = prev->getLink();
-                index = index + 1;
-            }
-            Node* toDelete = prev->getLink();
-            if (toDelete == nullptr) {
-                return false;
-            } else {
-                prev->setLink(toDelete->getLink());
-                delete toDelete;
-                return true;
-            }
+        Node* prev = head;
+        int index = 1;
+        while (prev->getLink() != nullptr && index < pos - 1) {
+            prev = prev->getLink();
+            index = index + 1;
         }
+        Node* toDelete = prev->getLink();
+        if (toDelete == nullptr) {
+            return false;
+        }
+        prev->setLink(toDelete->getLink());
+        delete toDelete;
+        return true;
     }
 }
 
-int LinkedList::get(int pos) const {
+int LinkedList::get(int pos) {
     Node* current = head;
     int index = 1;
     while (current != nullptr && index < pos) {
@@ -98,7 +93,7 @@ int LinkedList::get(int pos) const {
     }
 }
 
-int LinkedList::search(int target) const {
+int LinkedList::search(int target) {
     Node* current = head;
     int index = 1;
     while (current != nullptr) {
@@ -112,7 +107,7 @@ int LinkedList::search(int target) const {
     return -1;
 }
 
-void LinkedList::printList() const {
+void LinkedList::printList() {
     if (head != nullptr) {
         std::cout << "[";
         Node* current = head;
@@ -123,6 +118,6 @@ void LinkedList::printList() const {
             }
             current = current->getLink();
         }
-        std::cout << "]\n";
+        std::cout << "]";
     }
 }

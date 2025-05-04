@@ -6,9 +6,9 @@ private:
     int data;
     Node* link;
 public:
-    Node(int d);
-    int getData() const;
-    Node* getLink() const;
+    Node(int data);
+    int getData();
+    Node* getLink();
     void setLink(Node* next);
 };
 
