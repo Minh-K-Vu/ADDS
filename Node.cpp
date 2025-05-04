@@ -1,7 +1,7 @@
 #include "Node.h"
 
-Node::Node(int data)
-    : data(data), link(nullptr)
+Node::Node(int d)
+    : data(d), link(nullptr)
 {}
 
 int Node::getData() const {
