@@ -8,7 +8,7 @@ private:
     Node* head;
 public:
     LinkedList();
-    LinkedList(int* array, int len);
+    LinkedList(int* array, int length);
     ~LinkedList();
     void insertPosition(int pos, int newNum);
     bool deletePosition(int pos);
