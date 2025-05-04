@@ -7,7 +7,6 @@ std::list<int> BigNumCalc::buildBigNum(const std::string& s) const {
         if (std::isdigit(c)) {
             n.push_back(c - '0');
         } else {
-            // skip
         }
     }
     while (n.size() > 1 && n.front() == 0) {
