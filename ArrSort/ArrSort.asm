@@ -17,83 +17,111 @@ M=D
 @R3
 M=0
 (OUTER)
-  @R3
-  D=M
-  @2
-  D=M-D
-  D=D-1
-  @DONE
-  D;JLE
-
-  @R3
-  D=M
-  @R4
-  M=D
-
-  @R3
-  D=M
-  D=D+1
-  @R5
-  M=D
-
-  (INNER)
-    @R5
-    D=M
-    @2
-    D=M-D
-    @EXIT_INNER
-    D;JLE
-
-    @1
-    D=M
-    @R5
-    D=D+M
-    @R6
-    M=D
-
-    @1
-    D=M
-    @R4
-    D=D+M
-    @R7
-    M=D
-
-    @R6
-    A=M
-    D=M
-    @R8
-    M=D
-
-    @R7
-    A=M
-    D=M
-    @R9
-    M=D
-
-    @R8
-    D=M
-    @R9
-    D=D-M
-    @NO_UPDATE
-    D;JGE
-
-    @R5
-    D=M
-    @R4
-    M=D
-
-    (NO_UPDATE)
-    @R5
-    M=M+1
-    @INNER
-    0;JMP
-
-  (EXIT_INNER)
-  @R3
-  M=M+1
-  @OUTER
-  0;JMP
-
+@R3
+D=M
+@2
+D=M-D
+D=D-1
+@DONE
+D;JLE
+@R3
+D=M
+@R4
+M=D
+@R3
+D=M
+@R5
+M=D
+@R5
+M=M+1
+(INNER)
+@R5
+D=M
+@2
+D=M-D
+@EXIT_INNER
+D;JLE
+@1
+D=M
+@R5
+D=D+M
+@R6
+M=D
+@1
+D=M
+@R4
+D=D+M
+@R7
+M=D
+@R6
+A=M
+D=M
+@R8
+M=D
+@R7
+A=M
+D=M
+@R9
+M=D
+@R8
+D=M
+@R9
+D=D-M
+@NO_UPDATE
+D;JGE
+@R5
+D=M
+@R4
+M=D
+(NO_UPDATE)
+@R5
+M=M+1
+@INNER
+0;JMP
+(EXIT_INNER)
+@R4
+D=M
+@R3
+D=D-M
+@SKIP_SWAP
+D;JEQ
+@R3
+D=M
+@1
+A=M
+A=A+D
+D=M
+@R6
+M=D
+@R4
+D=M
+@1
+A=M
+A=A+D
+D=M
+@R7
+M=D
+@R7
+D=M
+@R3
+D=M
+@1
+A=M
+A=A+D
+M=D
+@R6
+D=M
+@R4
+D=M
+@1
+A=M
+A=A+D
+M=D
+(SKIP_SWAP)
+@R3
+M=M+1
+@OUTER
+0;JMP
 (DONE)
 @0
 M=-1
