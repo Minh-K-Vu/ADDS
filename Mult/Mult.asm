@@ -40,7 +40,7 @@ M=-M
 M=1
 @R5
 D=M
-@END
+@SKIP_LOOP
 D;JEQ
 @R7
 M=0
@@ -49,8 +49,8 @@ M=0
 D=M
 @R5
 D=D-M
-@END
-D;JEQ
+@LOOP_END
+D;JGE
 @R3
 D=M
 @0
@@ -59,13 +59,14 @@ M=M+D
 M=M+1
 @LOOP
 0;JMP
-(END)
+(LOOP_END)
 @R4
 D=M
 @R6
 D=D-M
-@POSITIVE
+@DONE
 D;JEQ
 @0
 M=-M
-(POSITIVE)
+(DONE)
+(SKIP_LOOP)
