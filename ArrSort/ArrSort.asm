@@ -7,77 +7,94 @@
 M=0
 @2
 D=M
-D=D-1
 @DONE
-D;JLE
-@R3
-M=0
-(OUTER)
-@2
-D=M
-D=D-1
-@R3
-D=D-M
-@DONE
-D;JLE
-@R4
-M=0
-(INNER)
-@2
-D=M
-D=D-1
-@R4
-D=D-M
-@INNER_END
-D;JLE
+D;LE
 @1
 D=M
-@R4
-D=D+M
-@R5
-M=D
-@R5
-A=M
-D=M
-@R6
-M=D
-@R5
-D=M
-@R7
-M=D
-@R7
-M=M+1
-@R7
-A=M
-D=M
 @R8
 M=D
-@R6
+@2
 D=M
-@R8
-D=D-M
-@NOSWAP
-D;JLE
-@R8
-D=M
-@R5
-A=M
+D=D-1
+@R9
 M=D
-@R6
-D=M
-@R7
-A=M
-M=D
-(NOSWAP)
-@R4
-M=M+1
-@INNER
-0;JMP
-(INNER_END)
 @R3
-M=M+1
-@OUTER
-0;JMP
+M=0
+
+(OUTER)
+  @R9
+  D=M
+  @R3
+  D=D-M
+  @DONE
+  D;LE
+
+  @R8
+  D=M
+  @R5
+  M=D
+  @R3
+  D=M
+  @R5
+  M=M+D
+  @R4
+  M=0
+
+  (INNER)
+    @R4
+    D=M
+    @R9
+    D=M-D
+    @INNER_END
+    D;JEQ
+
+    @R5
+    A=M
+    D=M
+    @R6
+    M=D
+    @R5
+    M=M+1
+    @R5
+    A=M
+    D=M
+    @R7
+    M=D
+
+    @R7
+    D=M
+    @R6
+    D=D-M
+    @NOSWAP
+    D;JGE
+
+    @R7
+    D=M
+    @R5
+    A=M
+    M=D
+    @R6
+    D=M
+    @R5
+    M=M-1
+    @R5
+    A=M
+    M=D
+    @R5
+    M=M+1
+
+    (NOSWAP)
+    @R4
+    M=M+1
+    @INNER
+    0;JMP
+
+  (INNER_END)
+  @R3
+  M=M+1
+  @OUTER
+  0;JMP
+
 (DONE)
 @0
 M=-1
