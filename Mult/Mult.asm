@@ -44,7 +44,6 @@ D=M
 D;JEQ
 @R7
 M=0
-
 (LOOP)
 @R7
 D=M
@@ -52,27 +51,21 @@ D=M
 D=D-M
 @END
 D;JEQ
-
 @R3
 D=M
 @0
 M=M+D
-
-// R7++
 @R7
 M=M+1
 @LOOP
 0;JMP
-
 (END)
 @R4
 D=M
 @R6
-D=D^M
+D=D-M
 @POSITIVE
 D;JEQ
-
 @0
 M=-M
-
 (POSITIVE)
