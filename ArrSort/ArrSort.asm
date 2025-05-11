@@ -78,13 +78,13 @@ M=M+1
 D=M
 @1
 D=D+M
-@R10
+@R12
 M=D
 @R4
 D=M
 @1
 D=D+M
-@R11
+@R13
 M=D
 @R3
 D=M
@@ -92,14 +92,6 @@ D=M
 D=D-M
 @SKIP_SWAP
 D;JEQ
-@R10
-D=M
-@R12
-M=D
-@R11
-D=M
-@R13
-M=D
 @R12
 A=M
 D=M
@@ -124,4 +116,3 @@ M=M+1
 (DONE)
 @0
 M=-1
-
