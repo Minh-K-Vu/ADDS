@@ -2,3 +2,21 @@
 // (R0, R1 refer to RAM[0], and RAM[1], respectively.)
 
 // Put your code here.
+
+@1
+D=M
+
+@POSITIVE
+D;JGE
+
+D=-D
+
+@0
+M=D
+@END
+0;JMP
+
+(POSITIVE)
+@0
+M=D
+(END)
