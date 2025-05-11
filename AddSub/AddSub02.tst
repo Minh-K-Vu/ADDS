@@ -1,11 +1,17 @@
-load "AddSub.asm"
-output-file "AddSub02.out"
-compare-to "AddSub02.cmp"
+load AddSub.asm,
+output-file AddSub02.out,
+compare-to AddSub02.cmp,
+output-list RAM[0]%D2.6.2 RAM[1]%D2.6.2 RAM[2]%D2.6.2 RAM[3]%D2.6.2;
 
-set R1 5
-set R2 7
-set R3 3
-
-run
-
-output-list R0
+set PC 0,
+set RAM[0] 0,
+set RAM[1] 0,
+set RAM[2] 10,
+set RAM[3] 5;
+repeat 100 {
+  ticktock;
+}
+set RAM[1] 0,
+set RAM[2] 10,
+set RAM[3] 5,
+output;
