@@ -53,15 +53,6 @@ D=M
 D=D-M
 @END
 D;JGE
-@0
-D=M
-@R3
-D=D+M
-@SAFE
-D;JLE
-@OVERFLOW
-0;JMP
-(SAFE)
 @R3
 D=M
 @0
@@ -81,6 +72,3 @@ D;JEQ
 M=-M
 (DONE)
 (SKIP)
-(OVERFLOW)
-@OVERFLOW
-0;JMP
