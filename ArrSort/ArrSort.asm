@@ -7,89 +7,88 @@
 M=0
 @2
 D=M
+D=D-1
 @DONE
-D;LE
+D;JLE
 @1
 D=M
 @R8
 M=D
-@2
-D=M
-D=D-1
-@R9
-M=D
 @R3
 M=0
-
 (OUTER)
-  @R9
-  D=M
   @R3
-  D=D-M
-  @DONE
-  D;LE
-
-  @R8
   D=M
+  @2
+  D=M-D
+  D=D-1
+  @DONE
+  D;JLE
+
+  @R3
+  D=M
+  @R4
+  M=D
+
+  @R3
+  D=M
+  D=D+1
   @R5
   M=D
-  @R3
-  D=M
-  @R5
-  M=M+D
-  @R4
-  M=0
 
   (INNER)
+    @R5
+    D=M
+    @2
+    D=M-D
+    @EXIT_INNER
+    D;JLE
+
+    @1
+    D=M
+    @R5
+    D=D+M
+    @R6
+    M=D
+
+    @1
+    D=M
     @R4
+    D=D+M
+    @R7
+    M=D
+
+    @R6
+    A=M
+    D=M
+    @R8
+    M=D
+
+    @R7
+    A=M
     D=M
     @R9
-    D=M-D
-    @INNER_END
-    D;JEQ
-
-    @R5
-    A=M
-    D=M
-    @R6
-    M=D
-    @R5
-    M=M+1
-    @R5
-    A=M
-    D=M
-    @R7
     M=D
 
-    @R7
+    @R8
     D=M
-    @R6
+    @R9
     D=D-M
-    @NOSWAP
+    @NO_UPDATE
     D;JGE
 
-    @R7
+    @R5
     D=M
-    @R5
-    A=M
-    M=D
-    @R6
-    D=M
-    @R5
-    M=M-1
-    @R5
-    A=M
-    M=D
-    @R5
-    M=M+1
-
-    (NOSWAP)
     @R4
+    M=D
+
+    (NO_UPDATE)
+    @R5
     M=M+1
     @INNER
     0;JMP
 
-  (INNER_END)
+  (EXIT_INNER)
   @R3
   M=M+1
   @OUTER
