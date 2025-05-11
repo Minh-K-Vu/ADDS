@@ -7,10 +7,10 @@ set PC 0,
 set RAM[0] 0,
 set RAM[1] 20,
 set RAM[2] 4,
-set RAM[20] 9,
-set RAM[21] 6,
-set RAM[22] 3,
-set RAM[23] 0;
+set RAM[20] 4,
+set RAM[21] 3,
+set RAM[22] 2,
+set RAM[23] 1;
 repeat 600 {
   ticktock;
 }
