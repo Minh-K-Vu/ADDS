@@ -18,12 +18,13 @@ M=D
 M=0
 @R3
 D=M
-@R4
+@POS1
 D;JGE
 @R3
 M=-M
 @R4
 M=1
+(POS1)
 @2
 D=M
 @R5
@@ -32,15 +33,16 @@ M=D
 M=0
 @R5
 D=M
-@R6
+@POS2
 D;JGE
 @R5
 M=-M
 @R6
 M=1
+(POS2)
 @R5
 D=M
-@SKIP_LOOP
+@SKIP
 D;JEQ
 @R7
 M=0
@@ -49,7 +51,7 @@ M=0
 D=M
 @R5
 D=D-M
-@LOOP_END
+@END
 D;JGE
 @R3
 D=M
@@ -59,7 +61,7 @@ M=M+D
 M=M+1
 @LOOP
 0;JMP
-(LOOP_END)
+(END)
 @R4
 D=M
 @R6
@@ -69,4 +71,4 @@ D;JEQ
 @0
 M=-M
 (DONE)
-(SKIP_LOOP)
+(SKIP)
