@@ -1,27 +1,34 @@
 #ifndef AUTOCOMPLETE_H
 #define AUTOCOMPLETE_H
 
-#include "TrieNode.h"
-#include <string>
 #include <vector>
+#include <string>
+#include <array>
 
-static constexpr size_t ALPHABET_SIZE = 26;
+using namespace std;
+
+class TrieNode {
+public:
+    bool isWord;
+    array<TrieNode*,26> children;
+
+    TrieNode();
+    ~TrieNode();
+};
 
 class Autocomplete {
+private:
+    TrieNode* root;
+
+    void dfs(TrieNode* node, string& prefix, vector<string>& results);
+
 public:
     Autocomplete();
     ~Autocomplete();
 
-    void insert(const std::string& word);
-    std::vector<std::string> getSuggestions(const std::string& partial) const;
+    void insert(const string& word);
 
-private:
-    TrieNode<ALPHABET_SIZE>* root;
-    int charIndex(char c) const;
-
-    void dfs(TrieNode<ALPHABET_SIZE>* node,
-             std::string& current,
-             std::vector<std::string>& out) const;
+    vector<string> getSuggestions(const string& partialWord);
 };
 
 #endif
