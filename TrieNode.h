@@ -2,14 +2,27 @@
 #define TRIENODE_H
 
 #include <array>
+#include <string>
+#include <vector>
+#include <memory>
 
-template <size_t ALPHABET_SIZE>
+const int ALPHABET_SIZE = 128;
+
+template <int SIZE>
 struct TrieNode {
-    std::array<TrieNode*, ALPHABET_SIZE> children{};
-    bool isWord = false;
+    std::array<TrieNode<SIZE>*, SIZE> children{};
+    bool isEndOfWord = false;
     int routerNumber = -1;
 
-    TrieNode() { children.fill(nullptr); }
+    TrieNode() {
+        children.fill(nullptr);
+    }
+
+    ~TrieNode() {
+        for (auto child : children) {
+            delete child;
+        }
+    }
 };
 
 #endif
